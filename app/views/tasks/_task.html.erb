@@ -1,11 +1,11 @@
 <tr>
   <td><%= task.title %></td>
   <td><%= task.user.name %></td>
-  <td><%= task.status %></td>
+  <td id="task<%= task.id %>" ><%= task.status %></td>
   <td><%= link_to 'Show', task %></td>
   <% if user_signed_in? && task.user.id == current_user.id %>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= button_to 'Done', done_path(task), method: :post %></td>
+    <td><%= button_to 'Done', done_path(task), method: :post, remote: true %></td>
   <% end %>
 </tr>

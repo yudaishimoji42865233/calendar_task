@@ -64,7 +64,6 @@ class TasksController < ApplicationController
   def done
     @task.update(status: "Done")
     @tasks = Task.all.includes(:user)
-    render :index
   end
 
   private
