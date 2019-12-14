@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all.includes(:user)
   end
 
   # GET /tasks/1
@@ -69,6 +69,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:content, :title, :start_date, :end_date).merge(user_id: current_user.id)
+      params.require(:task).permit(:content, :title, :start_date, :end_date, :status).merge(user_id: current_user.id)
     end
 end

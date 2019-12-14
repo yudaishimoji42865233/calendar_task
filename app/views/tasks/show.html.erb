@@ -16,6 +16,10 @@
   <strong>End_date:</strong>
   <%= @task.end_date %>
 </p>
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
+</p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

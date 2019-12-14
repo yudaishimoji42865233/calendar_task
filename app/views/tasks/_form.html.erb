@@ -31,6 +31,11 @@
     <%= form.datetime_select :end_date %>
   </div>
 
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, ["New","WIP","Done","Pending"] %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
