@@ -1,0 +1,11 @@
+<tr>
+  <td><%= task.title %></td>
+  <td><%= task.user.name %></td>
+  <td id="task<%= task.id %>" ><%= task.status %></td>
+  <td><%= link_to 'Show', task %></td>
+  <% if user_signed_in? && task.user.id == current_user.id %>
+    <td><%= link_to 'Edit', edit_task_path(task) %></td>
+    <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td id="button<%= task.id %>"><%= render 'done_wip/done_wip', task: task %></td>
+  <% end %>
+</tr>
