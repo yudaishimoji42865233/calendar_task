@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :done]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :done, :wip]
 
   # GET /tasks
   # GET /tasks.json
@@ -63,6 +63,11 @@ class TasksController < ApplicationController
 
   def done
     @task.update(status: "Done")
+    @tasks = Task.all.includes(:user)
+  end
+
+  def wip
+    @task.update(status: "WIP")
     @tasks = Task.all.includes(:user)
   end
 
