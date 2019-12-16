@@ -16,3 +16,73 @@
  */
 
  @import "bootstrap";
+
+ body {
+  text-align: center;
+  font-size: 14px;
+  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
+  
+#wrap {
+  width: 1200px;
+  margin: 20px auto;
+}
+  
+#external-events {
+  width: 35%;
+  float: left;
+  text-align: left;
+  max-height: 580px;
+}
+  
+#external-events .fc-event {
+  min-width: 100px;
+  margin: 10px 0;
+  cursor: pointer;
+  display: inline-block;
+}
+  
+#external-events p {
+  margin: 1.5em 0;
+  font-size: 11px;
+  color: #666;
+}
+  
+#external-events p input {
+  margin: 0;
+  vertical-align: middle;
+}
+.external-head{
+  border-bottom: 1px ;
+  border-color: #ccc;
+}
+.button-right{
+  text-align:right;
+  margin-top:-50px;
+  a {
+    color: #fff;
+  }
+}
+
+#calendar {
+  width: 60%;
+  float: right;
+}
+
+#scroll-bar{
+  overflow: auto;
+  max-height: 500px;
+  margin: 5px 0 20px;
+}
+
+.pull-right a{
+  color: #fff;
+}
+
+footer {
+  background-color: #101010;
+  height: 30px;
+  width: 100%;
+  position:absolute;
+  bottom:0;
+}

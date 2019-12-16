@@ -1,2 +1,2 @@
-$('#task<%= @task.id %>').text('WIP');
+$('#task<%= @task.id %>').html('<h4>Status:WIP</h4>');
 $('#button<%= @task.id %>').html('<%= escape_javascript(render("done_wip/done_wip", task: @task )) %>')
