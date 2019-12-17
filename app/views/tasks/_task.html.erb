@@ -1,11 +1,24 @@
 <tr>
-  <td><%= task.title %></td>
-  <td><%= task.user.name %></td>
-  <td id="task<%= task.id %>" ><%= task.status %></td>
-  <td><%= link_to 'Show', task %></td>
-  <% if user_signed_in? && task.user.id == current_user.id %>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td id="button<%= task.id %>"><%= render 'done_wip/done_wip', task: task %></td>
-  <% end %>
+  <div class="card">
+    <div class="card-header">
+      <%= link_to task.title, task ,class: 'fc-event'%>
+      <div id="task<%= task.id %>" >
+        <h4>Status:<%= task.status %></h4>
+      </div>
+      <% if user_signed_in? && task.user.id == current_user.id %>
+        <div class="button-right" id="button<%= task.id %>"><%= render 'done_wip/done_wip', task: task %></div>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <div class="float-left">
+        <h4>UserName:<%= task.user.name %></h4>
+      </div>
+      <div class="float-right">
+        <% if user_signed_in? && task.user.id == current_user.id %>
+          <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary"%>
+          <%= link_to 'Destroy', task, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </tr>
