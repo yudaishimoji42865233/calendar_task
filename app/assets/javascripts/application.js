@@ -22,37 +22,6 @@
 //= require_tree .
 
 $(function () {
-  $(document).on('turbolinks:load', function () {
-    // lengthを呼び出すことで、#calendarが存在していた場合はtrueの処理がされ、無い場合はnillを返す
-    if ($('#calendar').length) {
-        function eventCalendar() {
-            return $('#calendar').fullCalendar({
-            });
-        };
-        function clearCalendar() {
-            $('#calendar').html('');
-        };
-
-        $(document).on('turbolinks:load', function () {
-            eventCalendar();
-        });
-        $(document).on('turbolinks:before-cache', clearCalendar);
-        $('#calendar').fullCalendar({
-          events: '/tasks.json',
-          header: {
-            left: "title",
-            center: "",
-            right: "month,agendaWeek,agendaDay,listYear today prevYear,prev,next,nextYear"
-          },
-          timeFormat: "HH:mm",
-          eventColor: '#63ceef',
-          eventTextColor: '#000000',
-        });
-      }
-  });
-});
-
-$(function () {
   $('#calendar').fullCalendar({
     events: '/tasks.json',
     header: {
