@@ -19,7 +19,6 @@
 //= require fullcalendar
 //= require fullcalendar/lang/ja
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 $(function () {
