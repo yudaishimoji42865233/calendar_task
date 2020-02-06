@@ -1,48 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Calendar Task</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <% if user_signed_in? %>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="グループ検索" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">検索</button>
-      </form>
-    <% end %>
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          グループ一覧
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
   <% if user_signed_in? %>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
       <%= link_to "Sign In User Name : #{current_user.name}", new_task_path, class: "nav-link disabled" %>
     </li>
     <li class="nav-item">
-      <%= link_to '新規作成', new_task_path, class: "nav-link" %>
-    </li>
-    <li class="nav-item">
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %>
     </li>
   </ul>
   <% else %>
-    <form class="form-inline">
-      <input class="form-control mr-sm-2" type="search" placeholder="ユーザー名" aria-label="Search">
-      <input class="form-control mr-sm-2" type="search" placeholder="パスワード" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">ログイン</button>
-    </form>
   <ul class="navbar-nav mr-auto">
     <li class="nav-item">
       <%= link_to 'ログイン', new_user_session_path, class: "nav-link" %>
@@ -58,13 +27,11 @@
   <div id='external-events'>
     <div class="card">
       <div class="card-header">
-        <h4>My Tasks</h4>
+        <h4 class="task-head">My Tasks</h4>
+        <% if user_signed_in? %><%= link_to 'タスク新規作成', new_task_path, class: "btn btn-success", id: "new-task"%><%end%>
       </div>
-      <div class="button-right">
-        <%= link_to 'タスク新規作成', new_task_path, class: "btn btn-success"%>
-      </div>
-      <div id="scroll-bar">
-        <div class="card-body">
+      <div class="card-body" id="task-box">
+        <div id="scroll-bar">
           <blockquote class="blockquote mb-0">
             <%= render :partial => 'task', :collection => @tasks %>
           </blockquote>

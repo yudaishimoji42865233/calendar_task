@@ -40,6 +40,10 @@
   margin: 10px 0;
   cursor: pointer;
   display: inline-block;
+  color: white;
+  &:hover {
+    color: rgb(102, 102, 102);
+  }
 }
   
 #external-events p {
@@ -62,6 +66,22 @@
   a {
     color: #fff;
   }
+
+}
+#task-info{
+  margin-bottom: 10px;
+}
+
+.task-head{
+  display: inline-block;
+}
+
+.task-box{
+  height: auto;
+}
+
+#new-task{
+  float: right;
 }
 
 #calendar {
@@ -80,7 +100,7 @@
 }
 
 footer {
-  background-color: #101010;
+  background-color: #212529;
   height: 30px;
   width: 100%;
   position:absolute;

@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all.includes(:user)
+    @tasks = Task.where(user_id: current_user.id).includes(:user) if user_signed_in?
   end
 
   # GET /tasks/1
@@ -14,7 +14,11 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    if user_signed_in?
+      @task = Task.new
+    else
+      redirect_to tasks_path
+    end
   end
 
   # GET /tasks/1/edit
@@ -79,6 +83,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:content, :title, :start_date, :end_date, :status).merge(user_id: current_user.id)
+      params.require(:task).permit(:title, :content, :start_date, :end_date, :status).merge(user_id: current_user.id)
     end
 end

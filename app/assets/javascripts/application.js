@@ -23,7 +23,6 @@
 
 $(function () {
   $(document).on('turbolinks:load', function () {
-    // lengthを呼び出すことで、#calendarが存在していた場合はtrueの処理がされ、無い場合はnillを返す
     if ($('#calendar').length) {
         function eventCalendar() {
             return $('#calendar').fullCalendar({
@@ -49,21 +48,5 @@ $(function () {
           eventTextColor: '#000000',
         });
       }
-  });
-});
-
-$(function () {
-  $('#calendar').fullCalendar({
-    events: '/tasks.json',
-    header: {
-      left: "title",
-      center: "",
-      right: "month,agendaWeek,agendaDay,listYear today prevYear,prev,next,nextYear"
-    },
-    timeFormat: "HH:mm",
-    //イベントの色を変える
-    eventColor: '#63ceef',
-    //イベントの文字色を変える
-    eventTextColor: '#000000',
   });
 });
