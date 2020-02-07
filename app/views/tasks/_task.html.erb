@@ -1,12 +1,12 @@
 <tr>
-  <div class="card">
+  <div class="card" id="task-info">
     <div class="card-header">
       <%= link_to task.title, task ,class: 'fc-event'%>
-      <div id="task<%= task.id %>" >
+      <div id="task<%= task.id %>">
         <h4>Status:<%= task.status %></h4>
       </div>
       <% if user_signed_in? && task.user.id == current_user.id %>
-        <div class="button-right" id="button<%= task.id %>"><%= render 'done_wip/done_wip', task: task %></div>
+      <div class="button-right" id="button<%= task.id %>"><%= render 'done_wip/done_wip', task: task %></div>
       <% end %>
     </div>
     <div class="card-body">
@@ -15,8 +15,8 @@
       </div>
       <div class="float-right">
         <% if user_signed_in? && task.user.id == current_user.id %>
-          <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary"%>
-          <%= link_to 'Destroy', task, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary"%>
+        <%= link_to 'Destroy', task, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>
     </div>
