@@ -84,10 +84,14 @@ label {
 }
 
 .form-content{
-  width:900px;
-  margin:0 auto;
   text-align: left;
   float: center;
+  max-width: 1100px;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .float-left h4{

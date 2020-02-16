@@ -1,0 +1,26 @@
+<div id="contents_header">
+  <nav class="globalnav">
+    <div class="globalnav__menu">
+      <ul class="gmenu">
+        <li class="logo" style="float: left">
+          <a href="/">Community Board</a>
+        </li>
+        <% if user_signed_in? %>
+        <li class="entry_button" style="float: right">
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+        </li>
+        <li class="entry_button" style="float: right">
+          <%= link_to "Sign In User Name : #{current_user.name}", new_task_path %>
+        </li>
+        <% else %>
+        <li class="entry_button" style="float: right">
+          <%= link_to 'Log in', new_user_session_path %>
+        </li>
+        <li class="entry_button" style="float: right">
+          <%= link_to 'Sign up', new_user_registration_path %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
