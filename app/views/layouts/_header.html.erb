@@ -3,14 +3,14 @@
     <div class="globalnav__menu">
       <ul class="gmenu">
         <li class="logo" style="float: left">
-          <a href="/">Community Board</a>
+          <a href="/">Calendar Task</a>
         </li>
         <% if user_signed_in? %>
         <li class="entry_button" style="float: right">
           <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
         </li>
         <li class="entry_button" style="float: right">
-          <%= link_to "Sign In User Name : #{current_user.name}", new_task_path %>
+          <%= link_to "Sign In User Name : #{current_user.name}", edit_user_registration_path %>
         </li>
         <% else %>
         <li class="entry_button" style="float: right">
