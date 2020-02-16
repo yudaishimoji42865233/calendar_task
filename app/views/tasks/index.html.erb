@@ -28,7 +28,7 @@
     <div class="card">
       <div class="card-header">
         <h4 class="task-head">My Tasks</h4>
-        <% if user_signed_in? %><%= link_to 'タスク新規作成', new_task_path, class: "btn btn-success", id: "new-task"%><%end%>
+        <% if user_signed_in? %><%= link_to 'New Tasks', new_task_path, class: "btn btn-success", id: "new-task"%><%end%>
       </div>
       <div class="card-body" id="task-box">
         <div id="scroll-bar">

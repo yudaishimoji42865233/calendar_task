@@ -11,30 +11,35 @@
   </div>
   <% end %>
   <div class="form-group">
-    <%= form.label "タイトル" %>
-    <%= form.text_field :title, class:"form-control", id:"exampleInputEmail1", placeholder:"タイトルを入力してください"%>
+    <%= form.label "Title" %>
+    <%= form.text_field :title, class:"form-control", id:"exampleInputEmail1", placeholder:"title"%>
   </div>
   <div class="form-group">
-    <%= form.label "本文" %>
-    <%= form.text_area :content, class:"form-control", id:"exampleFormControlTextarea1" %>
+    <%= form.label "Content" %>
+    <%= form.text_area :content, class:"form-control", id:"exampleFormControlTextarea1", placeholder:"content" %>
   </div>
   <div class="form-group">
-    <%= form.label "開始日" %>
+    <%= form.label "Start_Date" %>
     <%= form.datetime_select :start_date, class:"form-control" %>
   </div>
   
   <div class="form-group">
-    <%= form.label "終了日" %>
+    <%= form.label "End_Date" %>
     <%= form.datetime_select :end_date, class:"form-control" %>
   </div>
   
   <div class="form-group">
-    <%= form.label "ステータス" %>
+    <%= form.label "Category" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label "Status" %>
     <%= form.select :status, ["New","WIP","Done","Pending"] %>
   </div>
 
   <div class="form-group">
-    <label for="File">イメージ画像</label>
+    <label for="File">Image</label>
     <input type="file" class="form-control-file" id="File">
   </div>
   <div class="actions">
