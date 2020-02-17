@@ -38,12 +38,14 @@
     <%= form.select :status, ["New","WIP","Done","Pending"] %>
   </div>
 
-  <div class="form-group">
-    <label for="File">Image</label>
-    <input type="file" class="form-control-file" id="File">
-  </div>
   <div class="actions">
-    <%= form.submit %>
+    <% if controller.controller_name == 'tasks' && controller.action_name == 'edit' %>
+    <button class="btn btn-outline-primary" type="submit">Update Task</button>
+    <%= link_to 'Back', @task,  class:"btn btn-outline-secondary" %>
+    <%else%>
+    <button class="btn btn-outline-primary" type="submit">Create Task</button>
+    <%= link_to 'Back', tasks_path,  class:"btn btn-outline-secondary" %>
+    <%end%>
   </div>
   <% end %>
 </div>

@@ -15,8 +15,8 @@
       </div>
       <div class="float-right">
         <% if user_signed_in? && task.user.id == current_user.id %>
-        <%= link_to 'Edit', edit_task_path(task), class: "btn btn-primary"%>
-        <%= link_to 'Destroy', task, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Edit', edit_task_path(task), class: "btn btn-outline-primary"%>
+        <%= link_to 'Destroy', task, method: :delete, class: "btn btn-outline-danger", data: { confirm: 'Are you sure?' } %>
         <% end %>
       </div>
     </div>
