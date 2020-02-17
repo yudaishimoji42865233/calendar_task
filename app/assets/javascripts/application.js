@@ -16,7 +16,6 @@
 //= require moment/ja.js
 //= require bootstrap
 //= require fullcalendar
-//= require fullcalendar/lang/ja
 //= require activestorage
 //= require turbolinks
 //= require_tree .
