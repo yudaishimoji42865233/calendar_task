@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   private
 
   def production?
-    Rails.application.credentials.production?
+    Rails.env.production?
   end
 
   def basic_auth
